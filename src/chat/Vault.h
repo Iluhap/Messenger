@@ -17,17 +17,30 @@ namespace Chat {
 class Vault
 {
 public:
-    auto AddChat(const User& first, const User& second) -> Response;
+    auto AddChat(const std::vector<User>& users) -> Response;
 
-    auto AddMessageTo(const Id& chat_id, const Message& message) -> Response;
-    auto EditMessage(const Id& chat_id, const Id& message_to_edit, const Message& new_message) -> Response;
-    auto DeleteMessage(const Id& chat_id, const Id& message_to_delete) -> Response;
+    auto AddMessage(const User& user,
+                    const Id& chat_id,
+                    const Message& message) -> Response;
 
-    auto GetChatsOf(const User& user) -> std::optional<std::set<Id>>;
-    auto GetHistory(const Id& chat_id) const -> std::optional<History>;
+    auto EditMessage(const User& user,
+                     const Id& chat_id,
+                     const Id& message_to_edit,
+                     const Message& new_message) -> Response;
+
+    auto DeleteMessage(const User& user,
+                       const Id& chat_id,
+                       const Id& message_to_delete) -> Response;
+
+    auto GetChats(const User& user) -> std::optional<std::set<Id>>;
+    auto GetChatHistory(const User& user, const Id& chat_id) const -> std::optional<History>;
 
 private:
     void AddChatForUser(const User& user, const Id& chat_id);
+
+    auto ChatBelongs(const User& user, const Id& chat_id) const -> bool;
+    auto IsSender(const User& user, const Message& message) const -> bool;
+    auto IsSender(const User& user, const Id& chat_id, const Id& message_id) const -> bool;
 
 private:
     std::unordered_map</*User*/ Id, /*Chat*/ std::set<Id>> user_chats_;

@@ -44,4 +44,13 @@ auto History::GetMessages() const -> std::vector<WrappedMessage>
     return {};
 }
 
+auto History::GetMessage(const Id& message_id) const -> std::optional<WrappedMessage>
+{
+    if (const auto& iter = messages_.find(message_id);
+        iter != messages_.end())
+    {
+        return iter->second;
+    }
+    return {};
+}
 } // namespace Chat

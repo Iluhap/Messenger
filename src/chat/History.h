@@ -20,6 +20,8 @@ public:
 
     auto GetMessages() const -> std::vector<WrappedMessage>;
 
+    auto GetMessage(const Id& message_id) const -> std::optional<WrappedMessage>;
+
 private:
     std::unordered_map<Id, WrappedMessage> messages_;
 };
