@@ -45,5 +45,3 @@ auto History::GetMessages() const -> std::vector<WrappedMessage>
 }
 
 } // namespace Chat
-
-

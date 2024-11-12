@@ -2,7 +2,7 @@
 #pragma once
 
 #include <unordered_map>
-#include <set>
+#include <vector>
 
 #include "WrappedMessage.h"
 
@@ -25,5 +25,3 @@ private:
 };
 
 } // namespace Chat
-
-

@@ -3,6 +3,7 @@
 
 #include <unordered_map>
 #include <set>
+#include <memory>
 
 #include "Request.h"
 #include "Response.h"

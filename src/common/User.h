@@ -21,5 +21,3 @@ struct User
             and id == other.id;
     }
 };
-
-

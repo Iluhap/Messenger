@@ -26,5 +26,3 @@ struct Message
             and lastEdited == other.lastEdited;
     }
 };
-
-
