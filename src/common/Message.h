@@ -17,6 +17,8 @@ struct Message
     Timestamp created;
     std::optional<Timestamp> lastEdited;
 
+    std::wstring url_to_media;
+
     bool operator==(const Message& other) const
     {
         return text == other.text
